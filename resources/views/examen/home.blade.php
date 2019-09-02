@@ -2,11 +2,12 @@
 @section('content')
 
 
-    <form action="" method="post" role="form" class="contactForm">
+    <form action="" id="form_map" method="post" role="form" class="contactForm">
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <div class="row">
             <div class="span3 form-group">
                 <select name="estado" id="select_estados">
+                    <option>-Seleccione estado-</option>
                     @foreach($estados as $estado)
                         <option value="{{ $estado['estado'] }}">{{ $estado['estado'] }}</option>
                     @endforeach
@@ -14,21 +15,24 @@
                 <div class="validation"></div>
             </div>
 
-            <div class="span3 form-group" id="selectMunicipio">
-                <select name="estado" id="tmp_select_municipios">
-                        <option value="">-Seleccione estado-</option>
+            <div class="span3 form-group" id="divSelectMunicipio">
+                <select name="municipio" id="tmp_select_municipios">
+                        <option value="">-Seleccione municipio-</option>
                 </select>
                 <div class="validation"></div>
             </div>
             <div class="span3 form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Ordenamiento" data-rule="minlen:4"
-                       data-msg="Please enter at least 8 chars of subject" />
+                <select name="ordenamiento" id="ordenamiento">
+                    <option value="">-Orden del precio-</option>
+                    <option value="0">-Ascendente-</option>
+                    <option value="1">-Descendente-</option>
+                </select>
                 <div class="validation"></div>
             </div>
             <div class="span3 form-group">
                 <div class="validation"></div>
                 <div class="text-center">
-                    <button class="btn btn-color btn-rounded" type="submit">Send message</button>
+                    <button class="btn btn-color btn-rounded" type="submit">Consultar precio de Gasolina</button>
                 </div>
             </div>
         </div>

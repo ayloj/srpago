@@ -26,7 +26,19 @@
     <!-- Map
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJzIpJ_xn8U6Hyv6F7UbGSZjBqRNiS9NU"></script>
     <script src="js/mymap.js"></script>-->
-
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
     <!-- =======================================================
       Theme Name: Serenity
       Theme URL: https://bootstrapmade.com/serenity-bootstrap-corporate-template/
@@ -96,15 +108,15 @@
                 </aside>
             </div>
             <div class="span8">
-                <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>-->
-                <div id="map"></div>
+
+                <div id="map"  style="width: 100%; height: 400px;"></div>
                 <script>
 
                     function initMap() {
                         var myLatLng = {lat: 20.71413, lng: -103.3042};
 
                         var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 4,
+                            zoom: 8,
                             center: myLatLng
                         });
 
@@ -139,28 +151,12 @@
                             Premium
                         </th>
                         <th>
-                            Premium
+                            Dieasel
                         </th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <th>
-                            <code>.visible-phone</code>
-                        </th>
-                        <td class="is-visible">
-                            Visible
-                        </td>
-                        <td class="is-hidden">
-                            Hidden
-                        </td>
-                        <td class="is-hidden">
-                            Hidden
-                        </td>
-                        <td class="is-hidden">
-                            Hidden
-                        </td>
-                    </tr>
+                    <tbody id="tableBody">
+
 
                     </tbody>
                 </table>

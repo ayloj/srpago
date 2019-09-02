@@ -19,3 +19,7 @@
 Route::get('/examen', 'ExamenController@home');
 
 Route::get('/getmunicipio', 'ExamenController@getmunicipio');
+
+Route::get('/map', function (){
+  return view('examen.map');
+});

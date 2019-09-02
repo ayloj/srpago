@@ -7,8 +7,8 @@ $(function(){
             url: '/getmunicipio',
             success: function(respuesta) {
                 console.log(respuesta);
-                $('#tmp_select_municipios').remove();
-                var select = $('<select name="estado" id="select_municipios">').appendTo('#selectMunicipio');
+                $('#divSelectMunicipio').empty();
+                var select = $('<select name="estado" id="select_municipios">').appendTo('#divSelectMunicipio');
                 $(respuesta.municipios).each(function() {
                     select.append($("<option>").attr('value',this.municipio).text(this.municipio));
                 });
@@ -18,6 +18,46 @@ $(function(){
             }
         });
     });
+
+    $("#form_map").submit(function(e){
+        e.preventDefault();
+        console.log("No enviar form");
+        var estado = $("#select_estados").val();
+        var munic = $("#select_municipios").val();
+        var orden = $("#ordenamiento").val();
+        var complementUrl = '';
+
+        if(estado != null || estado != undefined){
+            complementUrl += '/estado/'+estado
+        }
+        if(munic != null || munic != undefined){
+            complementUrl += '/municipio/'+munic
+        }
+        if(orden){
+            complementUrl += '/precio/'+orden
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: 'http://srpago.tech/api/costogasolina'+complementUrl,
+            success: function(respuesta) {
+                console.log(respuesta);
+                var dataTable = respuesta.data;
+                makeTable(dataTable);
+            },
+            error: function() {
+                console.log("No se ha podido obtener la información");
+            }
+        });
+    });
+
+    function makeTable(data) {
+        var table = '';
+        $.each(data, function( k, v ) {
+            $('#tableBody').append("<tr> <td>"+v.estado+"</td> <td>"+v.municipio+"</td> <td>"+v.regular+"</td> <td>"+v.premium+"</td> <td>"+v.dieasel+"</td> </tr>");
+        });
+    }
+
 });
 
 

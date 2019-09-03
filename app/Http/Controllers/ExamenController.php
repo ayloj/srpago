@@ -13,7 +13,7 @@ class ExamenController extends Controller
 //error_log(date("d-m-Y ").__METHOD__.", dataCostoGasolina - ".print_r($request, true)."\n\n", 3, "../Logs/devLog.log");
         $rs = new cpMex();
         $estados = $rs->select('d_estado as estado')
-            ->distinct()->get()->toArray();
+            ->distinct()->orderBy('d_estado', 'asc')->get()->toArray();
 
         $toView = array(
             'estados' => $estados
@@ -27,7 +27,7 @@ error_log(date("d-m-Y ").__METHOD__.", dataCostoGasolina - ".print_r($request->e
         $rs = new cpMex();
         $municipios = $rs->select('D_mnpio as municipio')
             ->where("d_estado", "=", $request->estado )
-            ->distinct()->get()->toArray();
+            ->distinct()->orderBy('D_mnpio', 'asc')->get()->toArray();
 
 
         return response()->json(['success'=>'Ok', "municipios" => $municipios]);

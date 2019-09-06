@@ -112,7 +112,7 @@ class CostogasolinaController extends Controller
      */
     private function findCp(){
         $dataCostoGasolina = array();
-        for ($i = 0; $i <= count($this->wsResponse); $i++){//Array de la respuesta del WS costo de gasolina
+        for ($i = 0; $i < count($this->wsResponse); $i++){//Array de la respuesta del WS costo de gasolina
             foreach ($this->db_cp as $cps){//Array de CP's de la BD
                     if($this->wsResponse[$i]['codigopostal'] == $cps['cp']){//Elemento del array de costo de gasolina
                         //eliminar el elemento $data del arreglo y salvarlo en el $dataCostoGasolina

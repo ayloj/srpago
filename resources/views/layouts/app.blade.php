@@ -23,21 +23,15 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-    <!-- Map
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJzIpJ_xn8U6Hyv6F7UbGSZjBqRNiS9NU"></script>
-    <script src="js/mymap.js"></script>-->
+
     <style>
         /* Always set the map height explicitly to define the size of the div
          * element that contains the map. */
         #map {
-            height: 100%;
+            width: 100%;
+            height: 400px;
         }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+
     </style>
     <!-- =======================================================
       Theme Name: Serenity
@@ -109,9 +103,8 @@
             </div>
             <div class="span8">
 
-                <div id="map"  style="width: 100%; height: 400px;"></div>
+                <div id="map"></div>
                 <script>
-
                     function initMap() {
                         var myLatLng = {lat: 20.71413, lng: -103.3042};
 
@@ -133,8 +126,6 @@
 
                 <div class="spacer30"></div>
 
-                <div id="sendmessage">Your message has been sent. Thank you!</div>
-                <div id="errormessage"></div>
                 <table class="table table-bordered table-striped responsive-utilities">
                     <thead>
                     <tr>
